@@ -64,22 +64,23 @@ These tables form the core of the database schema for the ETL pipeline and will 
 - location (String): Location where the purchase was made.
 - review_rating (Float): Rating given by the customer for the purchased item.
 
-## The ETL process
+## The ETL Process
 The `etl` function orchestrates the entire ETL process by:
-1. Loading the configuration from a YAML file, which includes the file path for the CSV data, database configuration, and log file path.
-2. Defining the primary keys and the name of the staging table.
-3. Setting up the table schema with the appropriate columns and data types.
-4. Configuring the logging to record the ETL process and any errors that occur.
-5. Creating a SQLAlchemy engine to connect to the PostgreSQL database using the credentials from the configuration file.
-6. Running the ETL process, which includes:
-  - Extracting data from the CSV file.
-  - Creating the staging table schema in the database if it doesn't exist.
-  - Loading data into the staging table with the correct column mapping.
-  -  The `transform_and_load` function governs transformation and loading of data into the normalized tables (customers, products, purchases) and creating them if they don't exist:
-    -  Transformation inclused such as converting values for fields `subscription_status`, `discount_applied`, and `promo_code_used ` that have 'Yes'/'No' strings to BOOLEAN values.
-    - Updating missing review ratings with the average rating.
-7. Handling any exceptions that occur during the ETL process by logging the error.
-8. Disposing of the database engine connection once the ETL process is complete or if an exception occurs.
+1. **Loading the configuration** from a YAML file, which includes the file path for the CSV data, database configuration, and log file path.
+2. **Defining the primary keys** and the name of the staging table.
+3. **Setting up the table schema** with the appropriate columns and data types.
+4. **Configuring the logging** to record the ETL process and any errors that occur.
+5. **Creating a SQLAlchemy engine** to connect to the PostgreSQL database using the credentials from the configuration file.
+6. **Running the ETL process**, which includes:
+   - Extracting data from the CSV file.
+   - Creating the staging table schema in the database if it doesn't exist.
+   - Loading data into the staging table with the correct column mapping.
+   - **The `transform_and_load` function** governs the transformation and loading of data into the normalized tables (customers, products, purchases) and creating them if they don't exist.
+     - Transforming values for fields such as `subscription_status`, `discount_applied`, and `promo_code_used` that have 'Yes'/'No' strings to BOOLEAN values.
+     - Updating missing review ratings with the average rating.
+7. **Handling any exceptions** that occur during the ETL process by logging the error.
+8. **Disposing of the database engine connection** once the ETL process is complete or if an exception occurs.
+
 
 
 ## Configuration
