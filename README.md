@@ -17,36 +17,36 @@ This ETL (Extract, Transform, Load) pipeline is designed to process customer dat
 
 ## Database Schema
 
-staging_customer_data: 
+**staging_customer_data**: 
 A staging table that temporarily holds raw data imported from the CSV file. The structure for this table includes:
-- customer_id (Integer, Primary Key): Unique identifier for the customer.
-- category (String): Category of the item purchased.
-- age (Integer): Age of the customer.
-- gender (String): Gender of the customer.
-- location (String): Location where the purchase was made or where the customer resides.
-- color (String): Color of the item purchased.
-- size (String): Size of the item purchased.
-- season (String): Season during which the purchase was made.
-- item_purchased (String): Name or identifier of the item purchased.
-- purchase_amount (Float): The amount of money spent on the purchase in USD.
-- review_rating (Float): Rating given by the customer for the purchased item.
-- subscription_status (String): Indicates whether the customer is subscribed to a service (likely to be transformed to a Boolean value).
-- payment_method (String): Method used by the customer to make the payment.
-- shipping_type (String): Type of shipping chosen for the delivery of the item.
-- discount_applied (String): Indicates whether a discount was applied to the purchase (likely to be transformed to a Boolean value).
-- promo_code_used (String): Indicates whether a promo code was used during the purchase (likely to be transformed to a Boolean value).
-- previous_purchase (String): Information on previous purchases made by the customer.
-- preferred_payment_method (String): Customer's preferred method of payment.
-- frequency_of_purchase (String): How often the customer makes purchases.
+- **customer_id (Integer, Primary Key)**: Unique identifier for the customer.
+- **category (String)**: Category of the item purchased.
+- **age (Integer)**: Age of the customer.
+- **gender (String)**: Gender of the customer.
+- **location (String)**: Location where the purchase was made or where the customer resides.
+- **color (String)**: Color of the item purchased.
+- **size (String)**: Size of the item purchased.
+- **season (String)**: Season during which the purchase was made.
+- **item_purchased (String)**: Name or identifier of the item purchased.
+- **purchase_amount (Float)**: The amount of money spent on the purchase in USD.
+- **review_rating (Float)**: Rating given by the customer for the purchased item.
+- **subscription_status (String)**: Indicates whether the customer is subscribed to a service (likely to be transformed to a Boolean value).
+- **payment_method (String)**: Method used by the customer to make the payment.
+- **shipping_type (String)**: Type of shipping chosen for the delivery of the item.
+- **discount_applied (String)**: Indicates whether a discount was applied to the purchase (likely to be transformed to a Boolean value).
+- **promo_code_used (String)**: Indicates whether a promo code was used during the purchase (likely to be transformed to a Boolean value).
+- **previous_purchase (String)**: Information on previous purchases made by the customer.
+- **preferred_payment_method (String)**: Customer's preferred method of payment.
+- **frequency_of_purchase (String)**: How often the customer makes purchases.
 
-customers:
+**customers**:
 A table that will contain unique customer information, derived from the staging_customer_data table. 
-- customer_id (Integer, Primary Key): Unique identifier for the customer.
-- age (Integer): Age of the customer.
-- gender (String): Gender of the customer.
-- subscription_status (String): Indicates whether the customer is subscribed to a service (likely to be transformed to a Boolean value).
+- **customer_id (Integer, Primary Key)**: Unique identifier for the customer.
+- **age (Integer)**: Age of the customer.
+- **gender (String)**: Gender of the customer.
+- **subscription_status (String)**: Indicates whether the customer is subscribed to a service (likely to be transformed to a Boolean value).
 
-products:
+**products**:
 A table that will contain details about the products purchased, such as name, category, size, color, and season. This table will be populated with distinct product information from the staging_customer_data table. The structure for this table includes:
 - item_purchased (String): Name or identifier of the item purchased.
 - category (String): Category of the item purchased.
@@ -55,7 +55,7 @@ A table that will contain details about the products purchased, such as name, ca
 - season (String): Season during which the item is typically purchased or used.
 
 
-purchases:
+**purchases**:
 A table that will hold records of each purchase, including customer ID, item purchased, purchase amount, location, and review rating. This table is created by selecting relevant columns from the staging_customer_data table and joining with other tables if normalization is required.
 These tables form the core of the database schema for the ETL pipeline and will be used to store and organize the customer data effectively. The schema is designed to facilitate easy data retrieval for analysis and reporting purposes.
 - customer_id (Integer): Identifier for the customer making the purchase.
