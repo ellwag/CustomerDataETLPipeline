@@ -33,8 +33,8 @@ A staging table that temporarily holds raw data imported from the CSV file. The 
 - **subscription_status (String)**: Indicates whether the customer is subscribed to a service (likely to be transformed to a Boolean value).
 - **payment_method (String)**: Method used by the customer to make the payment.
 - **shipping_type (String)**: Type of shipping chosen for the delivery of the item.
-- **discount_applied (String)**: Indicates whether a discount was applied to the purchase (likely to be transformed to a Boolean value).
-- **promo_code_used (String)**: Indicates whether a promo code was used during the purchase (likely to be transformed to a Boolean value).
+- **discount_applied (String)**: Indicates whether a discount was applied to the purchase (transformed to a Boolean value).
+- **promo_code_used (String)**: Indicates whether a promo code was used during the purchase (transformed to a Boolean value).
 - **previous_purchase (String)**: Information on previous purchases made by the customer.
 - **preferred_payment_method (String)**: Customer's preferred method of payment.
 - **frequency_of_purchase (String)**: How often the customer makes purchases.
@@ -44,7 +44,7 @@ A table that will contain unique customer information, derived from the staging_
 - **customer_id (Integer, Primary Key)**: Unique identifier for the customer.
 - **age (Integer)**: Age of the customer.
 - **gender (String)**: Gender of the customer.
-- **subscription_status (String)**: Indicates whether the customer is subscribed to a service (likely to be transformed to a Boolean value).
+- **subscription_status (String)**: Indicates whether the customer is subscribed to a service (transformed to a Boolean value).
 
 **products**:
 A table that will contain details about the products purchased, such as name, category, size, color, and season. This table will be populated with distinct product information from the staging_customer_data table. The structure for this table includes:
