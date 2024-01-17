@@ -1,6 +1,6 @@
 # Customer Data ETL Pipeline
 
-This ETL (Extract, Transform, Load) pipeline is designed to process customer data from a specific CSV file (see shopping directory) into a PostgreSQL database. The pipeline extracts data, transforms it according to the business logic (normalization) I defined, and loads it into a normalized database schema. This project showcases the use of Python and PostgreSQL with libraries such as Pandas and SQLAlchemy to handle data processing tasks efficiently.
+This ETL (Extract, Transform, Load) pipeline is designed to process customer data from a specific CSV file (see shopping directory) into a PostgreSQL database. The pipeline extracts data, transforms it according to the business logic I defined, and loads it into a normalized database schema. This project showcases the use of Python and PostgreSQL with libraries such as Pandas and SQLAlchemy to handle data processing tasks efficiently.
 
 ## Features
 
